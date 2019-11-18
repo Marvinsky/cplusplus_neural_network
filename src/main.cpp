@@ -14,6 +14,7 @@ int main() {
     vector<double> inputVals, targetVals, resultVals;
     int trainingPass = 0;
 
+    int trainingError = 0, accuracy;
     while (!trainData.isEof()) {
         ++trainingPass;
         cout<<endl<<"Pass "<<trainingPass;
@@ -37,9 +38,22 @@ int main() {
         myNet.backProp(targetVals);
 
         //report how well the training is working, averaged over recent
+        int recentAverageError = myNet.getRecentAverageError();
         cout<<"Net recent average error: "
-        <<myNet.getRecentAverageError()<<endl;
+        <<recentAverageError<<endl;
+        if (recentAverageError == 0) {
+            accuracy++;
+        } else {
+            trainingError++;
+        }
     }
+    cout<<endl<<endl;
+    cout<<"Percentage of Accuracy = "
+    <<(double(accuracy)/trainingPass)*100<<"%"<<endl;
+
+    cout<<"Percentage of Training Error = "
+    <<((double)trainingError/trainingPass)*100<<"%"<<endl;
+
     cout<<endl<<"Done"<<endl;
 
     return 0;
