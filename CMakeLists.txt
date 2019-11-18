@@ -7,4 +7,6 @@ set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
 project(NeuralNetwork)
 
-add_executable(NeuralNetwork src/main.cpp)
+file(GLOB SOURCES "src/*")
+
+add_executable(NeuralNetwork ${SOURCES})
