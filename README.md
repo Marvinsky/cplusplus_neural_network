@@ -49,7 +49,11 @@ and the result will be column A <b>XOR</b> B.
 What an artificial neural network will do is predict the output value
 based on any combination of input values ​​A and B.
 
-## <b> <u> Structure of an Artificial Neural Network </u> </b>
+## <b><u>Class Diagram:</u></b>
+
+![System Monitor](images/class_diagram.png)
+
+## <b><u>Structure of an Artificial Neural Network</u></b>
 
 An artificial neural network (aka; <b>Network</b>) has associated layers
 (aka; <b>Layer</b>) that are added or removed to the neural network using
@@ -63,55 +67,45 @@ which is obtained by a class member function.
 The behavior of our artificial neural network lies in performing the
 following operations:
  
-* A right processing or also called <b> feedForward </b> that
+* A right processing or also called <b>feedForward</b> that
 receive as a parameter the constant reference to a data type vector <i> double </i>
 which represents the input data in each layer of our neural network.
 
-* A reverse processing or also called <b> backPropagation </b> that
+* A reverse processing or also called <b>backPropagation</b> that
 receive as a parameter the constant reference to a data type vector <i> double </i>
 which represents the output data resulting from internal operations in each
 neuron.
 
-A layer (<b> Layer </b>) is made up of one or more neurons that are added or
-removed through the overloaded <b> addNeuron </b> functions it receives as
-Parameter La Neurona or La Neurona and the Neurona index and <b> removeNeuron </b> that
+A layer (<b>Layer</b>) is made up of one or more neurons that are added or
+removed through the overloaded <b>addNeuron</b> functions it receives as
+Parameter The Neuron or The Neuron and the Neuron index and <b>removeNeuron</b> that
 it receives as parameter the Neuron or the index of the Neuron.
 
 A Neuron has properties that do not change for any instance of the Nuron (e.g., <b><i>static</i> </b>) as
-for example: The learning ratio (aka; <b> m_learningRate </b>),
-angular momentum (aka; <b> momentum </b>).
+for example: The learning ratio (aka; <b>m_learningRate</b>),
+angular momentum (aka; <b>momentum</b>).
 
-Considering a moderate environment for training our network we will do that
-the learning ratio is equal to <b><i>0.5</i> </b> and the angular momentum
-equals <b><i>0.5</i> </b>.
-
-The Neuron inherits information from a base class called <b> Point </b> which contains
-properties such as horizontal position (<b> m_posX </b>), vertical position (<b> m_posY </b>),
-two pure virtual functions called: activation function (aka; <b><i>activiationFunction</i> </b>) that you receive as a parameter
-a <i> double </i> data type and the derived activation function (aka; <b><i>activiationFunctionDerivade</i> </b>)
-which receives as parameter a type of data double. Additionally, the overload of the
-operators <b> + </b> and <b> - </b> which adds and subtracts the values ​​of their respective positions
-respectively.
 
 For the specific case of the neuron, the calculation of the activation function is performed as
 the tangent of the number and the calculation of the derivative activation function is performed as the
 difference between one and the square of the number.
 
 Our artificial neural network is complete because all neurons are connected to the
-neurons in the next layer, such that a connection (aka; <b> Connection </b>) is part of the
-Neurons
+neurons in the next layer, such that a connection (aka; <b>Connection</b>) is part of the
+Neurons.
 
 ![System Monitor](images/fully_connected.png)
 
-A connection has as properties the weight (<b> m_weight </b>) and the weight delta (<b> m_deltaWeight </b>) which
-they are updated in each iteration of our neural network consisting of a <b> feedForward </b> and
-<b> backPropagation </b>.
+A connection has as properties the weight (<b>m_weight</b>) and the weight delta (<b>m_deltaWeight</b>) which
+they are updated in each iteration of our neural network consisting of a <b>feedForward</b> and
+<b>backPropagation</b>.
 
-Given the information provided, it is requested to model an artificial neural network which
-include header, source and main files.
+##<b><u>Testing</u></b>
 
-The main file must necessarily use each of the entities instances
-created in the model.
+![System Monitor](images/training_data.png)
 
 
+I have implemented the <b>TrainingData</b> class which handles the manipulation of 
+our data for training.
 
+The data training is created in <b>/data/makeTrainingSamples.cpp</b>

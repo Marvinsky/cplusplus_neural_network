@@ -83,9 +83,9 @@
 
 
 
-\umlassoc [attr1=1|,attr2=3..*|contain]{Network}{Layer}
-\umlassoc [attr1=|1,attr2=contiene|1..*]{Layer}{Neuron}
-\umlassoc [attr1=1|,attr2=1..*|holds]{Neuron}{Connection}
+\umlaggreg [attr1=1|,attr2=3..*|contain]{Network}{Layer}
+\umlaggreg [attr1=|1,attr2=contiene|1..*]{Layer}{Neuron}
+\umlcompo [attr1=1|,attr2=1..*|holds]{Neuron}{Connection}
 
 \end{tikzpicture}
 
