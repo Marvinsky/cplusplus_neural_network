@@ -21,6 +21,7 @@ private:
     double m_gradient;
 public:
     Neuron(unsigned numOutputs, unsigned myIndex);
+    ~Neuron(){}
     void setOutputVal(double val) {m_outputVal = val;}
     double getOutputVal(void) const {return m_outputVal;}
     void feedForward(const vector<Neuron> &prevLayer);

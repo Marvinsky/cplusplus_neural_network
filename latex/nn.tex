@@ -31,6 +31,16 @@
 + getTargetOutputs(\&targetOutputVals : vector<double>) : unsigned
 }
 
+\umlclass[width=15ex, x = -2, y = -5]{Generation} {
+- m\_trainingDataFile : ofstream
+}
+{
++ Generation(filename : const string)\\
++ $\sim$Generation()\\
+}
+
+
+
 \end{tikzpicture}
 
 

@@ -26,6 +26,7 @@ public:
         }
         file.close();
     }
+    ~Generation(){}
 };
 
 #endif //GENERATION_H

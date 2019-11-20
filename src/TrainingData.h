@@ -9,6 +9,7 @@ private:
     ifstream m_trainingDataFile;
 public:
     TrainingData(){}
+    ~TrainingData(){}
     void init(const string filename);
     bool isEof(void) {return m_trainingDataFile.eof();}
     void getTopology(vector<unsigned> &topology);
