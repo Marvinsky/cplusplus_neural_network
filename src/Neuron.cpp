@@ -17,6 +17,7 @@ alpha - momentum
 */
 double Neuron::eta = 0.15;
 double Neuron::alpha = 0.5;
+int Neuron::numNeurons = 0;
 
 void Neuron::updateInputWeights(vector<Neuron> &prevLayer) {
     //The weights to be updated are in the Connection container

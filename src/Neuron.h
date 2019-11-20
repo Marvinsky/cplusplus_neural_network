@@ -10,6 +10,7 @@
 
 class Neuron : public Athom {
 private:
+    static int numNeurons;
     static double eta; //[0.0..1.0] overall net training rate
     static double alpha; //[0.0..n] multiplier of last weight change (momentum)
     static double randomWeight(void) {rand()/double(RAND_MAX);}
@@ -18,10 +19,12 @@ private:
     vector<Connection> m_outputWeights;
     unsigned m_myIndex;
     double m_gradient;
+
 public:
+    Neuron(){ ++numNeurons; }
+    ~Neuron(){ --numNeurons;}
     Neuron(unsigned numOutputs, unsigned myIndex);
     Neuron(unsigned gradientError) {m_gradient = gradientError;}
-    ~Neuron(){}
     void setOutputVal(double val) {m_outputVal = val;}
     double getOutputVal(void) const {return m_outputVal;}
     void feedForward(const vector<Neuron> &prevLayer);
