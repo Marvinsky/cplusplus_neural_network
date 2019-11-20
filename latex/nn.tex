@@ -67,8 +67,6 @@
 \umlclass[width=15ex, x = -4, y = -9]{Neuron} {
 - $eta$ : double\\
 - $alpha$ : double\\
-- $activationFunction$ : double\\
-- $activationFunctionDerivative$ : double\\
 - $randomWeight$ : void\\
 - sumDOW(\&nextLayer : const Layer) : double\\
 - m\_outputVal : double\\
@@ -83,7 +81,21 @@
 + feedForward(\&prevLayer : const Layer) : void\\
 + calcOutputGradients(targetVal : double) : void\\
 + calcHiddenGradients(\&nextLayer : const Layer) : void\\
-+ updateInputWeights(\&nextLayer : Layer) : void
++ updateInputWeights(\&nextLayer : Layer) : void\\
++ activationFunction : double override\\
++ activationFunctionDerivative : double override\\
+}
+
+
+\umlclass[width=15ex, x = -4, y = -17]{Athom}{
+- m\_posX : int\\
+- m\_posY : int
+} 
+{
++ Athom()\\
++ Athom(\_m\_posX : int, \_m\_posY : int)\\
++ virtual activationFunction(x : double) = 0\\
++ virtual activationFunctionDerivative(x : double) = 0\\
 }
 
 \umlclass[x= 6, y=-16, width=5ex]{Connection}{
@@ -94,8 +106,11 @@
 
 
 \umlaggreg [attr1=1|,attr2=3..*|contain]{Network}{Layer}
-\umlaggreg [attr1=|1,attr2=contiene|1..*]{Layer}{Neuron}
+\umlaggreg [attr1=|1,attr2=contain|1..*]{Layer}{Neuron}
 \umlcompo [attr1=1|,attr2=1..*|holds]{Neuron}{Connection}
+\umlinherit [attr1=|,attr2=inherit|]{Neuron}{Athom}
+
+umlinherit
 
 \end{tikzpicture}
 
