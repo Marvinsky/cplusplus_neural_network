@@ -2,13 +2,14 @@
 #ifndef WORKSPACE_TRAININGDATA_H
 #define WORKSPACE_TRAININGDATA_H
 
-#include "tipos.h"
+#include "Tipos.h"
 
 class TrainingData {
 private:
     ifstream m_trainingDataFile;
 public:
-    TrainingData(const string filename);
+    TrainingData(){}
+    void init(const string filename);
     bool isEof(void) {return m_trainingDataFile.eof();}
     void getTopology(vector<unsigned> &topology);
 
@@ -36,7 +37,12 @@ void TrainingData::getTopology(vector<unsigned> &topology) {
     return;
 }
 
+/*
 TrainingData::TrainingData(const string filename) {
+    m_trainingDataFile.open(filename.c_str());
+}*/
+
+void TrainingData::init(const string filename) {
     m_trainingDataFile.open(filename.c_str());
 }
 

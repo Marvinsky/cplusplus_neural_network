@@ -3,7 +3,7 @@
 #ifndef WORKSPACE_FUNCTIONS_H
 #define WORKSPACE_FUNCTIONS_H
 
-#include "tipos.h"
+#include "Tipos.h"
 
 void showVectorVals(string label, vector<double> &v) {
     cout<<label<<" ";

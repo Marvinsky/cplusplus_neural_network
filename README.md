@@ -31,7 +31,7 @@ of artificial neural network.
 
 In an artificial neural network we can find elements such as examples:
  
-* Layers (Input, Hidden, Output)
+* Layers (Input, Hidden, Output) 
 * Neurons
 * Connections
 
@@ -76,7 +76,7 @@ receive as a parameter the constant reference to a data type vector <i> double <
 which represents the output data resulting from internal operations in each
 neuron.
 
-A layer (<b>Layer</b>) is made up of one or more neurons that are added or
+A layer (<b>Layer</b>) is made up of one or more neurons (<b>vector\<Neuron\></b>) that are added or
 removed through the overloaded <b>addNeuron</b> functions it receives as
 Parameter The Neuron or The Neuron and the Neuron index and <b>removeNeuron</b> that
 it receives as parameter the Neuron or the index of the Neuron.
@@ -108,4 +108,7 @@ they are updated in each iteration of our neural network consisting of a <b>feed
 I have implemented the <b>TrainingData</b> class which handles the manipulation of 
 our data for training.
 
-The data training is created in <b>/data/makeTrainingSamples.cpp</b>
+The data training is created either using <b>/data/makeTrainingSamples.cpp</b>
+or <b>Generation</b> class.
+
+Thanks.

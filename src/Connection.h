@@ -5,7 +5,7 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
 
-#include "tipos.h"
+#include "Tipos.h"
 
 class Connection {
 public:
