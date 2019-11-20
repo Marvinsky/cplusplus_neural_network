@@ -49,13 +49,13 @@ double Neuron::sumDOW(const vector<Neuron> &nextLayer) const {
 
 void Neuron::calcHiddenGradients(const vector<Neuron> &nextLayer) {
     double down = sumDOW(nextLayer);
-    m_gradient = down*Neuron::activationFunctionDerivative(m_outputVal);
+    m_gradient = down*activationFunctionDerivative(m_outputVal);
 }
 
 
 void Neuron::calcOutputGradients(double targetVal) {
     double delta = targetVal - m_outputVal;
-    m_gradient = delta*Neuron::activationFunctionDerivative(m_outputVal);
+    m_gradient = delta*activationFunctionDerivative(m_outputVal);
 }
 
 double Neuron::activationFunction(double x) {
@@ -77,7 +77,7 @@ void Neuron::feedForward(const vector<Neuron> &prevLayer) {
                prevLayer[n].m_outputWeights[m_myIndex].weight;
     }
     //activation function
-    m_outputVal = Neuron::activationFunction(sum);
+    m_outputVal = activationFunction(sum);
 }
 
 Neuron::Neuron(unsigned numOutputs, unsigned myIndex) {

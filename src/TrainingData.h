@@ -11,6 +11,7 @@ public:
     TrainingData(){}
     ~TrainingData(){}
     void init(const string filename);
+    bool isEof(ifstream trainingFileName) {return m_trainingDataFile.eof();}
     bool isEof(void) {return m_trainingDataFile.eof();}
     void getTopology(vector<unsigned> &topology);
 

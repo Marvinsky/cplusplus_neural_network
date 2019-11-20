@@ -6,13 +6,12 @@
 #define NEURON_H
 
 #include "Connection.h"
+#include "Athom.h"
 
-class Neuron {
+class Neuron : public Athom {
 private:
     static double eta; //[0.0..1.0] overall net training rate
     static double alpha; //[0.0..n] multiplier of last weight change (momentum)
-    static double activationFunction(double x);
-    static double activationFunctionDerivative(double x);
     static double randomWeight(void) {rand()/double(RAND_MAX);}
     double sumDOW(const vector<Neuron> &nextLayer) const;
     double m_outputVal;
@@ -21,6 +20,7 @@ private:
     double m_gradient;
 public:
     Neuron(unsigned numOutputs, unsigned myIndex);
+    Neuron(unsigned gradientError) {m_gradient = gradientError;}
     ~Neuron(){}
     void setOutputVal(double val) {m_outputVal = val;}
     double getOutputVal(void) const {return m_outputVal;}
@@ -28,6 +28,13 @@ public:
     void calcOutputGradients(double targetVal);
     void calcHiddenGradients(const vector<Neuron> &nextLayer);
     void updateInputWeights(vector<Neuron> &prevLayer);
+
+    double activationFunction(double x) override ;
+    double activationFunctionDerivative(double x) override;
+    //Utility function
+    friend Neuron operator+(Neuron& a, Neuron& b){
+        return Neuron(a.m_gradient + b.m_gradient);
+    }
 };
 
 #endif //NEURON_H
